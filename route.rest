@@ -1,0 +1,20 @@
+GET http://localhost:3000/Person
+
+###
+
+GET http://localhost:3000/Person/5f21bf742c1f272822d83b03
+
+
+###
+
+POST http://localhost:3000/Person
+Content-Type: application/json
+
+{
+  "name": "Delvin", 
+  "nickName": "del",
+  "gender": "male",
+  "occupation": "System Analyst",
+  "company": "Loop Solutions",    
+  "address": "Australia"
+}
