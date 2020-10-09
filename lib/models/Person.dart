@@ -1,5 +1,6 @@
 //import 'package:bloodline/PersonDetails/Contact.dart';
-import 'package:bloodline/PersonDetails/DBData.dart';
+import 'package:bloodline/models/DBData.dart';
+// import 'package:flutter/material.dart';
 import 'package:mongo_dart/mongo_dart.dart';
 //import 'package:bloodline/PersonDetails/Name.dart';
 //import 'package:bloodline/PersonDetails/Place.dart';
@@ -14,6 +15,7 @@ class Person extends DBData {
   String company;
   String address;
   String image;
+  List<String> parents;
   //Place place;
   //Contact contact;
   //List<Person> siblings;
@@ -32,6 +34,7 @@ class Person extends DBData {
       String company,
       String dob,
       String address,
+      List<String> parents,
       String image}) {
     this.name = name;
     this.nickName = nickName;
@@ -41,18 +44,21 @@ class Person extends DBData {
     this.company = company;
     this.dob = (dob != null) ? DateTime.parse(dob) : null;
     this.address = address;
+    this.parents = parents;
     this.image = image;
   }
 
   factory Person.fromJson(Map<String, dynamic> parsedJson) {
-    print('Person: ' + parsedJson.toString());
+    //debugPrint('Person: ' + parsedJson.toString());
     // print('id: ' +
     //     ObjectId.fromHexString(parsedJson['_id'].toString()).toString());
     // print('nickName: ' + parsedJson['nickName'].toString());
-    print('date: ' + parsedJson['dob'].toString());
-    print('------------');
+    //print('date: ' + parsedJson['dob'].toString());
+    //print('------------');
+    print('parsedJson: ' + parsedJson.toString());
     return Person(
       id: ObjectId.fromHexString(parsedJson['_id'].toString()),
+      // id: ObjectId.parse(parsedJson['_id'].toString()),
       name: parsedJson['name'].toString(),
       nickName: parsedJson['nickName'].toString(),
       gender: parsedJson['gender'].toString(),
@@ -60,6 +66,9 @@ class Person extends DBData {
       company: parsedJson['company'].toString(),
       dob: parsedJson['dob'].toString(),
       address: parsedJson['address'].toString(),
+      parents: (parsedJson['parents'] != null)
+          ? parsedJson['parents'].cast<String>()
+          : List<String>(),
       image: parsedJson['image'].toString(),
     );
   }

@@ -4,6 +4,12 @@ GET http://localhost:3000/Person
 
 GET http://localhost:3000/Person/5f21bf742c1f272822d83b03
 
+###
+GET http://localhost:3000/Person/5f76b045a1f0f33490c5662a
+
+###
+
+GET http://localhost:3000/Person/search/ania%20jo
 
 ###
 
@@ -11,10 +17,14 @@ POST http://localhost:3000/Person
 Content-Type: application/json
 
 {
-  "name": "Delvin", 
-  "nickName": "del",
-  "gender": "male",
-  "occupation": "System Analyst",
-  "company": "Loop Solutions",    
-  "address": "Australia"
+  "name": "Jithin", 
+  "nickName": "jith",
+  "gender": "Male",
+  "occupation": "Market Analyst",
+  "company": "Infinite Solutions",    
+  "address": "Bangalore"
 }
+
+###
+
+DELETE  http://localhost:3000/Person/1

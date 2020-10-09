@@ -6,7 +6,9 @@ const personSchema = new mongoose.Schema({
     "gender": {type: String},
     "occupation": {type: String},
     "company": {type: String},    
-    "address": {type: String}
+    "address": {type: String},
+    "dob": {type: String},
+    "image": {type: String},
 })
 
 module.exports = mongoose.model('Person', personSchema)

@@ -1,5 +1,11 @@
 // ignore: unused_shown_name
-import 'package:mongo_dart/mongo_dart.dart' show Db, DbCollection;
+// import 'package:mongo_dart/mongo_dart.dart' show Db, DbCollection;
+
+// export './src/people_controller.dart';
+// import 'dart:io';
+// export 'package:http_server/http_server.dart';
+
+import 'package:mongo_dart/mongo_dart.dart';
 
 class DBConnection {
   static DBConnection _instance;
@@ -29,6 +35,7 @@ class DBConnection {
   }
 
   _getConnectionString() {
+    print("host : port : dbName :: $_host : $_port : $_dbName");
     return "mongodb://$_host:$_port/$_dbName";
   }
 
